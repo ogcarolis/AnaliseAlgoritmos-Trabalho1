@@ -11,11 +11,9 @@ int dp[MAX]; // Vetor auxiliar para programação dinâmica
 
 // Função de comparação para qsort
 int cmp(const void *a, const void *b) {
-    long long x = *(long long *)a;
-    long long y = *(long long *)b;
-    if (x < y) return -1;
-    if (x > y) return 1;
-    return 0;
+    int x = *(int *)a;
+    int y = *(int *)b;
+    return x - y; // Ordenação crescente simples
 }
 
 // ----------------------------
