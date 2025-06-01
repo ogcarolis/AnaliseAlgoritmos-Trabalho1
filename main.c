@@ -81,17 +81,16 @@ int BottomUp() {
 // Função Principal
 // ----------------------------
 int main() {
-    // Usa o valor de retorno de scanf para evitar warning de resultado não utilizado
     if (scanf("%d", &n) != 1) {
         fprintf(stderr, "Erro ao ler a quantidade de elementos.\n");
         return 1;
     }
 
-    // Inicializa o gerador de números aleatórios
-    srand((unsigned int)time(NULL));
-    // Gera elementos aleatórios no intervalo [1, 10000]
     for (int i = 0; i < n; i++) {
-        arr[i] = 1 + rand() % 10000;
+        if (scanf("%d", &arr[i]) != 1) {
+            fprintf(stderr, "Erro ao ler elemento %d.\n", i);
+            return 1;
+        }
     }
 
     // Ordena os números para garantir divisibilidade crescente

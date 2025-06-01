@@ -7,22 +7,28 @@ all: main
 main: main.c
 	$(CC) $(CFLAGS) -o main main.c
 
-# Testes com diferentes tamanhos de entrada
-test-small:
-	@echo "Testando com entrada pequena (n=10)"
-	@echo "10" | ./main
+test-1:
+	@echo "=== Teste 1 ==="
+	@echo "5" > input.txt
+	@echo "8 32 12 16 4" >> input.txt
+	@./main < input.txt
 
-test-medium:
-	@echo "Testando com entrada média (n=100)"
-	@echo "100" | ./main
+test-2:
+	@echo "=== Teste 2 ==="
+	@echo "8" > input.txt
+	@echo "20 6 200 4 36 108 40 2" >> input.txt
+	@./main < input.txt
 
-test-large:
-	@echo "Testando com entrada grande (n=1000)"
-	@echo "1000" | ./main
+test-3:
+	@echo "=== Teste 3 ==="
+	@echo "8" > input.txt
+	@echo "108 4 360 6 756 18 2 36" >> input.txt
+	@./main < input.txt
 
-test: test-small test-medium test-large
+test: test-1 test-2 test-3
+	@rm -f input.txt
 
-.PHONY: all clean test test-small test-medium test-large
+.PHONY: all clean test test-1 test-2 test-3
 
 clean:
-	rm -f main
+	rm -f main input.txt
